@@ -1,3 +1,0 @@
-#!/bin/bash
-
-nmcli con down id $1

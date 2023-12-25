@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# rm ./config/cava/ -rf
+# cp ./config/cava/ ~/.config/ -r
+
+# rm ./config/dunst/ -rf
+# cp ./config/dunst/ ~/.config/ -r
+# killall dunst && dunst &
+
+# killall eww
+# rm ./config/eww/ -rf
+# cp ./config/eww/ ~/.config/ -r
+# eww open bar
+
+# rm ./config/kitty/ -rf
+# cp ./config/kitty/ ~/.config/ -r
+
+# rm ./config/neofetch/ -rf
+# cp ./config/neofetch/ ~/.config/ -r
+
+# rm ./config/nvim/ -rf
+# Nvchar install script goes here ----------------------------------------------------
+# rm ./config/nvim/custom/ -r
+# cp ./config/nvim/ ~/.config/ -r
+# kitty nvim
+
+# rm ./config/wofi/ -rf
+# cp ./config/wofi/ ~/.config/ -rf
+
+# echo "wallpapers are located in ~/.Wallpapers/"
+# cp ./config/.Wallpapers/ ~ -r
+
+# rm ./config/.p10k.zsh
+# cp ./config/.p10k.zsh ~
+
+# rm ./config/hypr/
+# cp ./config/hypr/ ~/.config/ -r
+# ~/.config/hypr/scripts/autostart
+
+echo "- I recommend you add the following lines to your ~/.zshrc file for the full rice experience"
+echo "pokemon-colorscripts -r"
+
+echo 'ZSH_THEME="powerlevel10k/powerlevel10k"'
+
+echo 'alias ls="exa"'
+echo 'alias cat="bat"'

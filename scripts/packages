@@ -1,6 +1,17 @@
-sudo pacman -S &&
-sudo pacman -Syu &&
+#!/bin/bash
+
+# Update pacman
+sudo pacman -S
+sudo pacman -Syu
+
+# Install yay
 pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
-sudo pacman -S firefox zsh neovim ranger cavas exa bat ripgrep fzf zoxide entr thefuck lazygit lazydocker btop glow &&
-yay -Syu --devel &&
-yay -S hyprland wofi &&
+
+# Update yay
+yay -Syu --devel
+
+# insall essentials
+sudo pacman -S kitty zsh neovim ranger exa bat ripgrep fzf zoxide entr thefuck lazygit lazydocker btop glow light pulseaudio dunst nm-connection-editor pamixer
+yay -S hyprland wofi cava eww swww
+
+sudo chmod a+w /sys/class/backlight/*/brightness

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir ~/.config_bak
+
+cp ./config/cava/ ~/.config_bak/ -r
+cp ./config/dunst/ ~/.config_bak/ -r
+cp ./config/eww/ ~/.config_bak/ -r
+cp ./config/kitty/ ~/.config_bak/ -r
+cp ./config/neofetch/ ~/.config_bak/ -r
+cp ./config/nvim/ ~/.config_bak/ -r
+cp ./config/wofi/ ~/.config_bak/ -rf
+cp ./config/.p10k.zsh ~/.config_bak/
+cp ./config/hypr/ ~/.config_bak/ -r
