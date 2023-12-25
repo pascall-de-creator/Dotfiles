@@ -1,0 +1,3 @@
+#!/bin/bash
+
+hyprctl activewindow -j | jq ".class" | jq --raw-output

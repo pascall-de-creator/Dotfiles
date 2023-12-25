@@ -1,0 +1,5 @@
+sudo pacman -S
+sudo pacman -Syu
+sudo pacman -S firefox zsh neovim ranger cavas exa bat ripgrep fzf zoxide entr thefuck lazygit lazydocker btop glow
+yay -Syu --devel
+yay -S hyprland wofi

@@ -1,0 +1,10 @@
+(defwidget launcher []
+    (box
+        (button
+            :tooltip "launcher apps and run commands"
+            :onclick "~/.config/eww/scripts/open_launcher"
+            :onrightclick "~/.config/hypr/scripts/exec_command"
+            ""
+        )
+    )
+)

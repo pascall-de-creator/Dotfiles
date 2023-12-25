@@ -1,0 +1,24 @@
+(defpoll brightness_icon :interval "1s" `./scripts/brightness --icon`)
+(defpoll brightness :interval "2s" `./scripts/brightness --get`)
+
+(defwidget brightness [] 
+    (box
+        :orientation "horizontal"
+        :valign "center"
+        :space-evenly "false"
+        :spacing 8
+        (button
+            :onclick "./scripts/volume --toggle"
+            (label
+                :class "infotext"
+                :halign "start"
+                :text "${brightness_icon}"
+            )
+        )
+        (scale
+            :hexpand true
+            :value "${brightness}"
+            :onchange "./scripts/brightness --set {} &"
+        )
+    )
+)

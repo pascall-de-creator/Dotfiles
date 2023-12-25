@@ -1,0 +1,38 @@
+(defwidget networks []
+    (box
+        :class "popup"
+        :orientation "vertical"
+        (box
+            (label
+                :halign "start"
+                :text "Networs"
+            )
+            (button
+                :halign "end"
+                (label
+                    :text "󰑓"
+                )
+            )
+        )
+        (scroll
+            :vscroll true
+        )
+    )
+)
+
+(defwindow network_menu
+    :monitor 0
+    :windowtype "dock"
+    :wm-ignore false
+    :stacking "fg"
+    :exclusive false
+    :geometry (geometry
+        :x "10px"
+        :y "10px"
+        :width "350px"
+        ;; :height "300px"
+        :anchor "top right"
+    )
+    (networks)
+)
+

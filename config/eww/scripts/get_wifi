@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Retrieve active WiFi connections using nmcli
+wifi_list=$(nmcli -t -f ACTIVE,SSID dev wifi | grep yes | cut -d':' -f2)
+
+# Loop through the active WiFi networks and echo their SSIDs
+for ssid in $wifi_list; do
+    echo "$ssid"
+done

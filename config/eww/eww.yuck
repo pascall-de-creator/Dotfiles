@@ -1,0 +1,88 @@
+(include "./widgets/launcher.yuck")
+(include "./widgets/appname.yuck")
+(include "./widgets/workspaces.yuck")
+(include "./widgets/network.yuck")
+(include "./widgets/battery.yuck")
+(include "./widgets/controls.yuck")
+(include "./widgets/clock.yuck")
+(include "./widgets/action_center.yuck")
+(include "./widgets/tray.yuck")
+
+;; ==================== Popups ====================
+
+(include "./popups/network.yuck")
+(include "./popups/controls.yuck")
+(include "./popups/calander.yuck")
+(include "./popups/action_menu.yuck")
+(include "./popups/tray.yuck")
+
+
+;; ================== Variables ==================
+
+
+
+;; ============= Widgets n' Windows ==============
+
+(defwidget left []
+    (box
+        :space-evenly "false"
+        :spacing 4
+        :halign "start"
+        (launcher)
+        (appname)
+    )
+)
+
+(defwidget center []
+    (box
+        :spacing 4
+        :space-evenly "false"
+        :halign "center"
+        (workspaces)
+    )
+)
+
+(defwidget right []
+    (box
+        :space-evenly "false"
+        :halign "end"
+        (network)
+        (battery)
+        (control)
+        (clock_module)
+        (action_center)
+        (tray)
+    )
+)
+
+
+(defwidget bar_layout []
+    (centerbox
+        :class "dockbox"
+        :orientation "horizontal"
+        (left)
+        (center)
+        (right)
+    )
+)
+
+(defwindow bar
+    :monitor 0
+    :windowtype "dock"
+    :wm-ignore false
+    :stacking "fg"
+    :exclusive true
+    :geometry (geometry
+        :x "0%"
+        :y "0%"
+        :width "100%"
+        :height "30px"
+        :anchor "top center"
+    )
+    :reserve (struts
+        :distance "30px"
+        :side "top"
+    )
+    (bar_layout)
+)
+

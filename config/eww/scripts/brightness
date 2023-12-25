@@ -1,0 +1,33 @@
+#!/bin/bash
+
+brightness=$(light | awk -F'.' '{print $1}')  # Extracting only the integer part
+
+set_brightness() {
+    light -S $1
+}
+
+if (( $(echo "$brightness > 90" | bc -l) )); then
+    icon=""
+elif (( $(echo "$brightness > 80" | bc -l) )); then
+    icon=""
+elif (( $(echo "$brightness > 70" | bc -l) )); then
+    icon=""
+elif (( $(echo "$brightness > 60" | bc -l) )); then
+    icon=""
+elif (( $(echo "$brightness > 50" | bc -l) )); then
+    icon=""
+elif (( $(echo "$brightness > 40" | bc -l) )); then
+    icon=""
+elif (( $(echo "$brightness > 30" | bc -l) )); then
+    icon=""
+elif (( $(echo "$brightness > 20" | bc -l) )); then
+    icon=""
+else
+    icon=""
+fi
+
+case "$1" in
+    --set) set_brightness "$2" ;;
+    --get) echo "$brightness" ;;
+    --icon) echo "$icon" ;;
+esac

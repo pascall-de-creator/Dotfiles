@@ -1,0 +1,7 @@
+#!/bin/bash
+
+eww close control_menu &
+eww close action_menu &
+eww close calender_menu &
+eww close tray-menu &
+eww open network_menu --toggle

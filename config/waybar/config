@@ -1,0 +1,153 @@
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║              ___       __________  ________________________               ║
+// ║              __ |     / /__    | \/ /__  __ )__    |__  __ \              ║
+// ║              __ | /| / /__  /| |_  /__  __  |_  /| |_  /_/ /              ║
+// ║              __ |/ |/ / _  ___ |  / _  /_/ /_  ___ |  _, _/               ║
+// ║              ____/|__/  /_/  |_/_/  /_____/ /_/  |_/_/ |_|                ║
+// ║                                                                           ║
+// ║                                                                           ║
+// ║                                                                           ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
+{
+  // -------------------------------------------------------------------------
+  // Global configuration
+  // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/window",
+        "custom/media",
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock",
+        "tray"
+    ],
+
+  // -------------------------------------------------------------------------
+  // Modules
+  // -------------------------------------------------------------------------
+
+    "custom/launcher": {
+        "format": "",
+        "tooltip-format": "Launcher",
+        "on-click": "wofi --show drun",
+        "on-click-right": "~/.config/hypr/scripts/exec_command",
+    },
+
+    "custom/media": {
+        "format": "{icon} {}",
+        "tooltip-format": "{}",
+        "return-type": "json",
+        "max-length": 20,
+        "format-icons": {
+            "vlc": "󰕼 ",
+            "spotify": " ",
+            "default": " ",
+        },
+        "on-click": {},
+        "escape": true,
+        "exec": "python3 $HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 20
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+              "1": "一",
+              "2": "二",
+              "3": "三",
+              "4": "四",
+              "5": "五",
+              "6": "六",
+              "7": "七",
+              "8": "八",
+              "9": "九",
+              "10": "十"
+        },
+    },
+
+    "network": {
+        "interval": 20,
+        "format-wifi": " ",
+        "format-disconnected": "󰖪 ",
+        "on-click": "nm-connection-editor",
+        "on-middle-click": "nmcli con down id {essid}",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "tooltip-format-disconnected": "⚠  Disconnected",
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": " ",
+            "handsfree": "󰟅 ",
+            "headset": "󰋎 ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", "  "]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
+    },
+
+    "backlight": {
+        "scroll-step": 5,
+        "format": "{percent}% {icon}",
+        "tooltip-format": "{percent}% Brigntness",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}%  {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time}  {icon}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "clock": {
+        "interval": 60,
+        "format": "{:%e %b %Y %I:%M %p}",
+        // "format": "{:%I:%M %p}",
+        "format-alt": "{:%A, %B %d, %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "actions":  {
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-down": "shift_down",
+            "on-scroll-up": "shift_up",
+        },
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+}

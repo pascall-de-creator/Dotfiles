@@ -1,0 +1,6 @@
+(defwidget control []
+    (button
+        :onclick "~/.config/eww/scripts/popup_control"
+        ""
+    )
+)

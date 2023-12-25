@@ -1,0 +1,48 @@
+(defpoll status1 :interval "1s" `./scripts/get_workspace 1`)
+(defpoll status2 :interval "1s" `./scripts/get_workspace 2`)
+(defpoll status3 :interval "1s" `./scripts/get_workspace 3`)
+(defpoll status4 :interval "1s" `./scripts/get_workspace 4`)
+(defpoll status5 :interval "1s" `./scripts/get_workspace 5`)
+(defpoll status6 :interval "1s" `./scripts/get_workspace 6`)
+(defpoll status7 :interval "1s" `./scripts/get_workspace 7`)
+(defpoll status8 :interval "1s" `./scripts/get_workspace 8`)
+(defpoll status9 :interval "1s" `./scripts/get_workspace 9`)
+(defpoll status10 :interval "1s" `./scripts/get_workspace 10`)
+
+
+(defwidget workspaces []
+    (box
+        :class "workspace"
+        :orientation "horizontal"
+        (button
+            :class status1
+            :onclick "hyprctl dispatch workspace 1" "一")
+        (button
+            :class status2
+            :onclick "hyprctl dispatch workspace 2" "二")
+        (button
+            :class status3
+            :onclick "hyprctl dispatch workspace 3" "三")
+        (button
+            :class status4
+            :onclick "hyprctl dispatch workspace 4" "四")
+        (button
+            :class status5
+            :onclick "hyprctl dispatch workspace 5" "五")
+        (button
+            :class status6
+            :onclick "hyprctl dispatch workspace 6" "六")
+        (button
+            :class status7
+            :onclick "hyprctl dispatch workspace 7" "七")
+        (button
+            :class status8
+            :onclick "hyprctl dispatch workspace 8" "八")
+        (button
+            :class status9
+            :onclick "hyprctl dispatch workspace 9" "九")
+        (button
+            :class status10
+            :onclick "hyprctl dispatch workspace 10" "十")
+    )
+)

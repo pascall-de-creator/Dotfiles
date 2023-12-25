@@ -1,0 +1,21 @@
+#!/bin/bash
+
+volume=$(pamixer --get-volume)
+
+set_volume() {
+    pamixer --set-volume "${1}"
+}
+
+if [ "$volume" -gt 70 ]; then
+    icon=""
+elif [ "$volume" -gt 40 ]; then
+    icon=""
+else
+    icon=""
+fi
+
+case "$1" in
+    --set) set_volume "$2" ;;
+    --get) echo "$volume" ;;
+    --icon) echo "$icon" ;;
+esac

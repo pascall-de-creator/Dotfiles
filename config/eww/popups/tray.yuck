@@ -1,0 +1,23 @@
+(defwidget tray_popup []
+    (box
+        :class "popup"
+        "Apps Go there"
+    )
+)
+
+(defwindow tray_menu
+    :monitor 0
+    :windowtype "dock"
+    :wm-ignore false
+    :stacking "fg"
+    :exclusive false
+    :geometry (geometry
+        :x "10px"
+        :y "10px"
+        :width "40px"
+        :height "30px"
+        :anchor "top right"
+    )
+    (tray_popup)
+)
+

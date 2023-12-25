@@ -1,0 +1,15 @@
+#!/bin/bash
+
+status="open"
+
+if [ $(hyprctl activeworkspace -j | jq ".id" ) == $1 ]; then
+    status="active"
+else
+    if echo "$(hyprctl workspaces -j)" | jq -e '.[] | select(.id == '"$1"')' >/dev/null; then
+        status="open"
+    else
+        status="closed"
+    fi
+fi
+
+echo $status

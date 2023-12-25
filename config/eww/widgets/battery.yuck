@@ -1,0 +1,13 @@
+(defpoll capacity :interval "5s" `./scripts/get_battery --capacity`)
+(defpoll status :interval "5s" `./scripts/get_battery --status`)
+(defpoll icon :interval "5s" `./scripts/get_battery --icon`)
+(defpoll level :interval "5s" `./scripts/get_battery --level`)
+
+
+(defwidget battery []
+    (box
+        :class level
+        :tooltip "${icon} ${capacity}% ${status}"
+        "${icon} ${capacity}%"
+    )
+)

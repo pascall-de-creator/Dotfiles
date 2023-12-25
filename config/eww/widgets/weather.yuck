@@ -1,0 +1,13 @@
+(defpoll ICON :interval "15m" `./scripts/weather --icon`)
+(defpoll TEMP :interval "15m" `./scripts/weather --temp`)
+(defpoll HEX :interval "15m" `./scripts/weather --hex`)
+
+
+(defwidget weather [] 
+		(box :class "dockbox"
+			(box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME)
+				(label :class "date" :halign "start" :wrap "true" :limit-width 25 :text DATE))
+			(box :class "weatherbox" :orientation "h" :spacing 0 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "weathericon" :style "color: ${HEX};" :text ICON)
+				(label :class "weathertemp" :text TEMP))))

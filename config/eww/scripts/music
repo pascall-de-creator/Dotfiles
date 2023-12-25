@@ -1,0 +1,47 @@
+#!/bin/bash
+
+STATUS="$(playerctl status)"
+
+## Get status
+get_status() {
+	if [[ $STATUS == "Playing" ]]; then
+		echo ""
+	else
+		echo ""
+	fi
+}
+
+## Get song
+get_song() {
+    song=$(playerctl metadata "xesam:title" 2>/dev/null)
+	if [ "$song" = "" ]; then
+		echo "No Title"
+	else
+		echo "$song"
+	fi
+}
+
+## Get artist
+get_artist() {
+    artist=$(playerctl metadata "xesam:artist" 2>/dev/null)
+	if [ "$artist" = "" ]; then  # Change from "$song" to "$artist"
+		echo "The void"
+	else
+		echo "$artist"
+	fi	
+}
+
+## Execute accordingly
+if [[ "$1" == "--song" ]]; then
+	get_song
+elif [[ "$1" == "--artist" ]]; then
+	get_artist
+elif [[ "$1" == "--status" ]]; then
+	get_status
+elif [[ "$1" == "--toggle" ]]; then
+	playerctl play-pause
+elif [[ "$1" == "--next" ]]; then
+	{ playerctl next; }
+elif [[ "$1" == "--prev" ]]; then
+	{ playerctl previous; }
+fi

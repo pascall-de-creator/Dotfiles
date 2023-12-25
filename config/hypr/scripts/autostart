@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
+
+swww init &
+eww open bar &
+~/.config/hypr/scripts/commands/'Random Wallpaper Slideshow' &

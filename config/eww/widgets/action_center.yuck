@@ -1,0 +1,6 @@
+(defwidget action_center []
+    (button
+        :onclick "~/.config/eww/scripts/open_action_menu"
+        "󱃤"
+    )
+)

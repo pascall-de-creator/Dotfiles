@@ -1,0 +1,13 @@
+(defpoll essid :interval "5s" "./scripts/get_wifi_status --essid")
+(defpoll wlanicon :interval "5s" "./scripts/get_wifi_status --icon")
+
+
+(defwidget network []
+    (button
+        :tooltip "${wlanicon}   ${essid}"
+        :onclick "~/.config/eww/scripts/popup_network"
+        :onrightclick "~/.config/eww/scripts/open_connection_manager"
+        :onmiddleclick "~/.config/eww/scripts/disconnect_network '${essid}'"
+        wlanicon
+    )
+)

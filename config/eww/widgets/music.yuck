@@ -1,0 +1,59 @@
+(defpoll SONG :interval "1s" `./scripts/music --song`)
+(defpoll ARTIST :interval "1s" `./scripts/music --artist`)
+(defpoll COVER :interval "1s" `./scripts/music --cover`)
+(defpoll STATUS :interval "1s" `./scripts/music --status`)
+
+(defwidget music [] 
+    (box
+        :class "music"
+        (box
+            :class "musicbox"
+            :orientation "vertical"
+            :spacing 8
+            :valign "center"
+            :halign "start"
+            :space-evenly "false"
+            :vexpand "false"
+            :hexpand "false"
+            (label
+                :class "song"
+                :halign "start"
+                :wrap "false"
+                :limit-width 20
+                :text SONG
+            )
+            (label
+                :class "artist"
+                :halign "start"
+                :wrap "false"
+                :limit-width 20
+                :text ARTIST
+            )
+        )
+        (box
+            :class "musicbuttons"
+            :orientation "horizontal"
+            :spacing 10
+            :valign "center"
+            :halign "end"
+            :space-evenly "false"
+            :vexpand "false"
+            :hexpand "false"
+            (button
+                :class "trackbutton"
+                :onclick "./scripts/music --prev"
+                "󰒮"
+            )
+            (button
+                :class "playbutton"
+                :onclick "./scripts/music --toggle"
+                STATUS
+            )
+            (button
+                :class "trackbutton"
+                :onclick "./scripts/music --next"
+                "󰒭"
+            )
+        )
+    )
+)

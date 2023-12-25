@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+scripts_dir=~/.config/hypr/scripts/commands/
+script_name="$(ls $scripts_dir | wofi --show dmenu)"
+
+"$($scripts_dir"$script_name")"

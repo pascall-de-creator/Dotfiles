@@ -1,0 +1,6 @@
+(defwidget tray []
+    (button
+        :onclick "~/.config/eww/scripts/popup-tray"
+        "󰀻"
+    )
+)

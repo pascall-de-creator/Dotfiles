@@ -1,0 +1,79 @@
+* {
+    font-family: poppins;
+    font-size: 13px;
+}
+
+window {
+    all: unset;
+}
+
+label {
+    padding: 0px 10px;
+}
+
+button {
+    all: unset;
+    padding: 5px 0px;
+}
+
+button:hover {
+    color: #02B875;
+}
+
+.popup {
+	background-color: #161616;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.bar {
+	background-color: #161616;
+	border-bottom: 2px solid #333;
+}
+
+
+.workspace {
+    font-weight: 900;
+
+    .closed {
+        color: #888
+    }
+    .active {
+        color: #02B875;
+    }
+    .open {
+        color: #fff;
+    }
+}
+
+
+.charging {
+    color: #02B875;
+}
+.good {
+    color: #bfb
+}
+.normal {
+    color: #fff;
+}
+.low {
+    color: #fbb;
+}
+.critical {
+    color: #f44;
+}
+
+
+.music {
+    margin-top: 20px;
+}
+
+.song {
+	font-size : 14px;
+	font-weight : bold;
+}
+
+.artist {
+	font-size : 12px;
+	font-weight : bold;
+}

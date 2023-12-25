@@ -1,0 +1,12 @@
+(defpoll clock_date_time :interval "5s" "date '+\ %a %d %b %I:\%M %p'")
+
+
+(defwidget clock_module []
+    (box
+        (button
+            :halign "center"
+            :onclick "~/.config/eww/scripts/popup_calender"
+            clock_date_time
+        )
+    )
+)

@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+hyprpicker | wl-copy
+dunstify "Coppied color to clipboard" -a "Color picker" -t 2000

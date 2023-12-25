@@ -1,0 +1,23 @@
+(defpoll VOLICON :interval "1s" `./scripts/volume --icon`)
+(defpoll VOLUME :interval "2s" `./scripts/volume --get`)
+
+(defwidget volume [] 
+    (box
+        :orientation "horizontal"
+        :valign "center"
+        :space-evenly "false"
+        (button
+            :onclick "./scripts/volume --toggle"
+            (label
+                :class "infotext"
+                :halign "start"
+                :text "${VOLICON} "
+            )
+        )
+        (scale
+            :hexpand true
+            :onchange "./scripts/volume --set {} &"
+            :value "${VOLUME}"
+        )
+    )
+)

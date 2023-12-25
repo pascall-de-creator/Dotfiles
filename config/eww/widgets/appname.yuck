@@ -1,0 +1,10 @@
+(defpoll appname :interval "2s" `./scripts/appname`)
+(defpoll apptitle :interval "2s" `./scripts/apptitle`)
+
+
+(defwidget appname []
+    (box
+        :tooltip "${appname} | ${apptitle}"
+        appname
+    )
+)

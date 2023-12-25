@@ -1,0 +1,55 @@
+#!/bin/bash
+
+BAT=$(ls /sys/class/power_supply | grep BAT | head -n 1)
+
+battery() {
+    cat "/sys/class/power_supply/${BAT}/capacity"
+}
+
+battery_stat() {
+    cat "/sys/class/power_supply/${BAT}/status"
+}
+
+if [ "$(battery_stat)" == "Discharging" ]; then
+    status=$(battery)
+    if [ "$status" -gt 90 ]; then
+        icon="󰁹"
+        level="good"
+    elif [ "$status" -gt 80 ]; then
+        icon="󰂂"
+        level="good"
+    elif [ "$status" -gt 70 ]; then
+        icon="󰂁"
+        level="good"
+    elif [ "$status" -gt 60 ]; then
+        icon="󰂀"
+        level="normal"
+    elif [ "$status" -gt 50 ]; then
+        icon="󰁿"
+        level="normal"
+    elif [ "$status" -gt 40 ]; then
+        icon="󰁾"
+        level="normal"
+    elif [ "$status" -gt 30 ]; then
+        icon="󰁽"
+        level="low"
+    elif [ "$status" -gt 20 ]; then
+        icon="󰁼"
+        level="critical"
+    elif [ "$status" -gt 10 ]; then
+        icon="󰁻"
+        level="critical"
+    else
+        icon="󰁺"
+    fi
+else
+    icon="󰂄"
+    level="charging"
+fi
+
+case "$1" in
+    --capacity) battery ;;
+    --status) battery_stat ;;
+    --icon) echo "$icon" ;;
+    --level) echo "$level" ;;
+esac
